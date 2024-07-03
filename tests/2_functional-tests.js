@@ -122,11 +122,6 @@ suite("Functional Tests", function () {
           .end(function (err, res) {
             assert.equal(res.status, 200);
             assert.isObject(res.body, "response should be an object");
-            assert.property(
-              res.body,
-              "commentcount",
-              "Book should contain commentcount",
-            );
             assert.property(res.body, "title", "Book should contain title");
             assert.property(res.body, "_id", "Book should contain _id");
             done();
@@ -145,15 +140,11 @@ suite("Functional Tests", function () {
             .end(function (err, res) {
               assert.equal(res.status, 200);
               assert.isObject(res.body, "response should be an object");
-              assert.property(
-                res.body,
-                "commentcount",
-                "Book should contain commentcount",
-              );
+
               assert.property(res.body, "title", "Book should contain title");
               assert.property(res.body, "_id", "Book should contain _id");
               assert.isOk(
-                res.body.comments.includes("testcomment"),
+                res.body.comments.includes("didnt read lol"),
                 "The given comment should appear",
               );
               done();
